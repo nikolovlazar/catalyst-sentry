@@ -4,8 +4,6 @@
 
 import * as Sentry from '@sentry/nextjs';
 
-console.error('INITIALIZING SENTRY SDK');
-
 Sentry.init({
   dsn: 'https://91ef9ec114b2094e83a5196be97e5523@o4506044970565632.ingest.us.sentry.io/4510082016935936',
 
@@ -20,7 +18,7 @@ Sentry.init({
   // Define how likely Replay events are sampled.
   // This sets the sample rate to be 10%. You may want this to be 100% while
   // in development and sample at a lower rate in production
-  replaysSessionSampleRate: 0.1,
+  replaysSessionSampleRate: 1.0,
 
   // Define how likely Replay events are sampled when an error occurs.
   replaysOnErrorSampleRate: 1.0,
@@ -30,4 +28,3 @@ Sentry.init({
 });
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
-
